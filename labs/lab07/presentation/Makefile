@@ -1,28 +1,23 @@
-SRC = presentation.md
-FILES += $(patsubst %.md, %.pdf, $(wildcard *.md))
-FILES += $(patsubst %.md, %.html, $(wildcard *.md))
+# Укажите необходимые инструменты
+PANDOC = pandoc
+PDF_ENGINE = pdflatex
 
-FILTERS =
-PDF_ENGINE =
-PDF_OPTIONS =
-PDF_FORMAT_OPTIONS = -t beamer --slide-level=2
+# Исходный файл
+MD_FILE = presentation.md
 
-FILTERS += --citeproc
-# FILTERS += -F pandoc-crossref
-PDF_ENGINE += --pdf-engine=lualatex
-PDF_OPTIONS += --number-sections
+# Целевые файлы
+DOCX_FILE = presentation.docx
+PDF_FILE = presentation.pdf
 
-REVEALJS_THEME = beige
+# Правила для конвертации
+all: $(DOCX_FILE) $(PDF_FILE)
 
-%.pdf: %.md
-	-@pandoc "$<" $(FILTERS) $(PDF_ENGINE) $(PDF_OPTIONS) $(PDF_FORMAT_OPTIONS) -o "$@"
+$(DOCX_FILE): $(MD_FILE)
+	$(PANDOC) $(MD_FILE) -o $(DOCX_FILE)
 
-%.html: %.md
-	-@pandoc "$<" --embed-resources --standalone -t revealjs -V theme=$(REVEALJS_THEME) -o "$@"
+$(PDF_FILE): $(MD_FILE)
+	$(PANDOC) $(MD_FILE) -o $(PDF_FILE) --pdf-engine=$(PDF_ENGINE)
 
-all: $(FILES)
-
+# Очистка
 clean:
-	-@rm $(FILES) *~
-
-cleanall: clean
+	rm -f $(DOCX_FILE) $(PDF_FILE)
