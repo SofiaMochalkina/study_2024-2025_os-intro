@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Мочалкина Софья Васильевна НБИбд-02-24">
+  <title>Система управления пакетами Chocolatey</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link href="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freset%2Ecss" rel="stylesheet">
+  <link href="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freveal%2Ecss" rel="stylesheet">
+  <style>
+.reveal .sourceCode { 
+overflow: visible;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <link href="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Ftheme%2Fbeige%2Ecss" rel="stylesheet" id="theme">
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Система управления пакетами Chocolatey</h1>
+  <p class="author">Мочалкина Софья Васильевна НБИбд-02-24</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="date">13 мая 2025</p>
+</section>
+
+<section id="содержание" class="slide level2">
+<h2>Содержание</h2>
+<ul>
+<li>Chocolatey — система управления пакетами для Windows</li>
+<li>Основная черта Chocolatey</li>
+<li>История создания</li>
+<li>Рост популярности</li>
+<li>Открытый исходный код</li>
+<li>Использование в разных сценариях</li>
+<li>Установка Chocolatey</li>
+<li>Самые популярные команды</li>
+<li>Основные функции</li>
+<li>Chocolatey GUI</li>
+<li>Некоторые преимущества Chocolatey</li>
+<li>Некоторые недостатки Chocolatey</li>
+</ul>
+</section>
+<section id="chocolatey-система-управления-пакетами-для-windows" class="slide level2">
+<h2>Chocolatey — система управления пакетами для Windows</h2>
+<p>Chocolatey — система управления пакетами для Windows с интерфейсом
+командной строки и установщиком программного обеспечения на машинном
+уровне.</p>
+<p>Она использует инфраструктуру упаковки NuGet и Windows PowerShell для
+упрощения процесса загрузки и установки программного обеспечения.</p>
+</section>
+<section id="основная-черта-chocolatey" class="slide level2">
+<h2>Основная черта Chocolatey</h2>
+<p>Основная черта Chocolatey — пакеты чаще всего не содержат
+установочных файлов (setup.msi, setup.exe и т. д.). В пакете находится
+скрипт-установщик на powershell, который скачивает и устанавливает
+нужную версию установочного файла из нужного места в интернете.</p>
+<p>Chocolatey нужен для удобного управления программами в Windows. Он
+делает установку, удаление и обновление программ в операционной системе
+похожими на те, что используются в Linux.</p>
+</section>
+<section id="история-создания" class="slide level2">
+<h2>История создания</h2>
+<p>Chocolatey был создан Робом Рейнольдсом в 2011 году как простой
+скрипт для установки приложений из командной строки. Проект быстро
+набрал популярность и превратился в полноценный менеджер пакетов для
+Windows.</p>
+</section>
+<section id="рост-популярности" class="slide level2">
+<h2>Рост популярности</h2>
+<p>Chocolatey стал востребованным инструментом в сообществе DevOps из-за
+способности автоматизировать задачи управления программным обеспечением
+и обеспечивать согласованность в разных средах. Сегодня его используют
+тысячи организаций по всему миру для оптимизации процессов управления
+программным обеспечением.</p>
+</section>
+<section id="открытый-исходный-код" class="slide level2">
+<h2>Открытый исходный код</h2>
+<p>Проект является открытым, что позволяет любому вносить свой вклад в
+его развитие. Это привело к активному сообществу разработчиков, которые
+помогли улучшить и расширить возможности Chocolatey.</p>
+</section>
+<section id="использование-в-разных-сценариях" class="slide level2">
+<h2>Использование в разных сценариях</h2>
+<p>Chocolatey применяется в различных ситуациях, от управления
+локальными средами разработки отдельными разработчиками до автоматизации
+процессов управления программным обеспечением в крупных
+организациях.</p>
+</section>
+<section id="установка-chocolatey" class="slide level2">
+<h2>Установка Chocolatey</h2>
+<p>Во-первых, убедитесь, что вы используете административную оболочку.
+Скопируйте текст, относящийся к вашей командной оболочке - cmd.exe или
+powershell.exe.</p>
+<p>cmd.exe</p>
+<p><code>@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://community.chocolatey.org/install.ps1&#39;))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</code></p>
+</section>
+<section id="установка-chocolatey-1" class="slide level2">
+<h2>Установка Chocolatey</h2>
+<p>PowerShell.exe</p>
+<p><code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://community.chocolatey.org/install.ps1&#39;))</code></p>
+<p>Вставьте скопированный текст в оболочку и нажмите Enter. Подождите
+несколько секунд, пока команда не будет выполнена. Если вы не видите
+никаких ошибок, вы готовы использовать Chocolatey CLI!</p>
+</section>
+<section id="самые-популярные-команды" class="slide level2">
+<h2>Самые популярные команды</h2>
+<p>choco install <название_программы> - установка пакета. Ищет
+соответствующую программу и устанавливает её.</p>
+<p>choco uninstall - удаляет указанный пакет.</p>
+<p>choco outdated - показывает список устаревших установленных
+пакетов.</p>
+<p>choco upgrade &lt;pkg|all&gt; - обновляет пакеты до последних версий.
+Если указать all, то будут обновлены все пакеты, установленные через
+Chocolatey. Можно также указывать отдельные программы choco search
+<программа> - производит поиск пакета по локальным и удалённым
+источникам.</p>
+<p>choco pin <программа> - предотвращает обновление определённой
+программы.</p>
+</section>
+<section id="основные-функции" class="slide level2">
+<h2>Основные функции</h2>
+<p>Установка программного обеспечения. Chocolatey поддерживает тысячи
+разных программ, например Chrome, Adobe Reader, Firefox, WinRAR и
+Skype.</p>
+<p>Обновление установленных программ. Chocolatey проверит, требуются ли
+обновления, и автоматически установит новую версию.</p>
+<p>Просмотр установленных пакетов. Есть графический интерфейс для
+просмотра установленных пакетов, проверки обновлений и настройки
+параметров Chocolatey.</p>
+<p>Оптимизация установки. Команда «optimize» оптимизирует установку,
+сокращая использование пространства. Конвертация пакетов. Команда
+«convert» преобразует пакеты из одного типа в другой.</p>
+</section>
+<section id="chocolatey-gui" class="slide level2">
+<h2>Chocolatey GUI</h2>
+<p>Chocolatey GUI - это графический интерфейс для инструмента
+Chocolatey, который позволяет устанавливать, обновлять и управлять
+пакетами в системе Windows.</p>
+<p>Состоит из трёх основных разделов: На левой стороне — источники, где
+можно найти установленные в системе приложения и проверить программы,
+доступные в репозитории Chocolatey. На верхней стороне — панель
+инструментов, где можно искать пакеты и обновлять все существующие. Ниже
+панели инструментов — список пакетов, где можно обновлять,
+устанавливать, удалять и просматривать детали.</p>
+</section>
+<section id="некоторые-преимущества-chocolatey" class="slide level2">
+<h2>Некоторые преимущества Chocolatey</h2>
+<p>Простота использования. Chocolatey упрощает установку программного
+обеспечения с помощью простых команд.</p>
+<p>Широкий спектр пакетов. В репозитории Chocolatey есть множество
+пакетов программного обеспечения, что облегчает поиск и установку
+различных приложений.</p>
+<p>Автоматизация и создание скриптов. Chocolatey позволяет
+автоматизировать задачи управления программным обеспечением с помощью
+скриптов, что экономит время, особенно в корпоративных средах, где нужно
+управлять несколькими машинами.</p>
+<p>Контроль версий. Chocolatey предоставляет возможности контроля
+версий, позволяя пользователям указывать, какую версию пакета
+программного обеспечения они хотят установить.</p>
+</section>
+<section id="некоторые-недостатки-chocolatey" class="slide level2">
+<h2>Некоторые недостатки Chocolatey</h2>
+<p>Потенциальные риски безопасности. Поскольку пакеты Chocolatey могут
+создавать любые пользователи, есть риск установки небезопасных пакетов.
+Рекомендуется использовать только надёжные источники.</p>
+<p>Ограниченный графический интерфейс. Chocolatey в основном работает
+через командную строку, что может быть неудобно для тех, кто
+предпочитает графические интерфейсы.</p>
+<p>Стоимость коммерческих лицензий. Хотя Chocolatey бесплатен для
+личного использования, для коммерческих целей и использования
+расширенных функций требуется платная лицензия.</p>
+<p>Проблемы с зависимостями. Иногда в пакетах могут быть проблемы с
+зависимостями, которые необходимо решать вручную, что может усложнить
+простой процесс.</p>
+</section>
+    </div>
+  </div>
+
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freveal%2Ejs"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fnotes%2Fnotes%2Ejs"></script>
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fsearch%2Fsearch%2Ejs"></script>
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fzoom%2Fzoom%2Ejs"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

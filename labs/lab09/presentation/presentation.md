@@ -1,14 +1,12 @@
 ---
 ## Front matter
 lang: ru-RU
-title: Лабораторная работа 9
-subtitle: Командная оболочка Midnight
-Commander
-author:
-  - Мочалкина С. В.
-institute:
-  - Российский университет дружбы народов, Москва, Россия
-date: 12.04.2025
+title: "Лабораторная работа 9"
+subtitle: "Командная оболочка Midnight
+Commander"
+author: "Мочалкина С. В."
+institute: "Российский университет дружбы народов, Москва, Россия"
+date: "12.04.2025"
 
 ## i18n babel
 babel-lang: russian
